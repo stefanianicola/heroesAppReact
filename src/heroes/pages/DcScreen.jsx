@@ -1,4 +1,4 @@
-import { HeroList } from '../heroe/HeroList';
+import { HeroList } from '../components';
 
 export const DcScreen = () => {
     return (
