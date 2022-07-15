@@ -1,22 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export const LoginScreen = () => {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handleLogin = () => {
+    const lastPath = localStorage.getItem("lasPath") || "/";
 
-    const handleLogin = () => {
-        navigate('/', { replace: true });
-    }
+    login("Stefania Nicola");
 
-    return (
-        <div className='container mt-5'>
-            <h1>Login</h1>
-            <hr />
+    navigate(lastPath, { replace: true });
+  };
 
-            <button className='btn btn-primary' onClick={handleLogin}>
-                Login
-            </button>
-        </div>
-    )
-}
+  return (
+    <div className="container mt-5">
+      <h1>Login</h1>
+      <hr />
+
+      <button className="btn btn-primary" onClick={handleLogin}>
+        Login
+      </button>
+    </div>
+  );
+};

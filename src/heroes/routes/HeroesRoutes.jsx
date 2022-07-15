@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "../../shared";
 import { MarvelScreen } from "../pages/MarvelScreen";
 import { SearchScreen } from "../pages/SearchScreen";
@@ -15,7 +15,7 @@ export const HeroesRoutes = () => {
           <Route path="dc" element={<DcScreen />} />
           <Route path="search" element={<SearchScreen />} />
           <Route path="heroe/:id" element={<Heroe />} />
-          <Route path="/" element={<MarvelScreen />} />
+          <Route path="/" element={<Navigate to="/marvel" />} />
         </Routes>
       </div>
     </>
